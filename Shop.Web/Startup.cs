@@ -39,6 +39,12 @@ namespace Shop.Web
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+            // inyeccion con tiempo mas corto, se usay se destruye
+            services.AddTransient<SeedDb>();
+
+            //perdura por toda la ejecución. cada que llamen IRepository se le va inyectar 
+            //la implmentacion de la clase Repository
+            services.AddScoped<IRepository, Repository>();
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

@@ -14,10 +14,11 @@ namespace Shop.Web.Data.Entities
 		// por defecto se pone el nombre Id y no hay que ponerle data notation diciendo que es clave primaria
 		public int Id { get; set; }
 
-		[MaxLength(20, ErrorMessage = "The {0} field can not have more than {1} characters.")]
+		[Required]
+		[MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters length.")]
 		public string Name { get; set; }
 
-		/*Descorados: son modificaciones que se le ponen a los atributos, pueden cambiar solo para visualizacion 
+		/*Decorados: son modificaciones que se le ponen a los atributos, pueden cambiar solo para visualizacion 
 		 o cambiar la estructura en  que se guardan en la base de datos
 
 		 en este caso el decorado "{0:C2}",currency 2  es visual y afecta el formato en que se muestra el precio 
@@ -29,18 +30,17 @@ namespace Shop.Web.Data.Entities
 		public decimal Price { get; set; }
 
 		//decoradores display  cambia el nombre que ve el usuario
-		[MaxLength(20, ErrorMessage = "The {0} field can not have more than {1} characters.")]
+		[MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
 		[Display(Name = "Image")]
 		public string ImageUrl { get; set; }
 
-		[MaxLength(20, ErrorMessage = "The {0} field can not have more than {1} characters.")]
+		
 		[Display(Name = "Last Purchase")]
-
-		public DateTime LastPurchase { get; set; }
+		public DateTime? LastPurchase { get; set; }
 
 
 		[Display(Name = "Last Sale")]
-		public DateTime LastSale { get; set; }
+		public DateTime? LastSale { get; set; }
 
 		[Display(Name = "Is Availabe?")]
 		public bool IsAvailabe { get; set; }
