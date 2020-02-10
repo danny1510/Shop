@@ -8,10 +8,11 @@ namespace Shop.Web.Data.Entities
 	using System;
 	using System.ComponentModel.DataAnnotations;
 
-	public class Product
+	public class Product:IEntity
 	{
 		// Es oblidatorio en entity que todas las tablas tengan un id numerico autoincrementable
 		// por defecto se pone el nombre Id y no hay que ponerle data notation diciendo que es clave primaria
+		
 		public int Id { get; set; }
 
 		[Required]
@@ -48,6 +49,8 @@ namespace Shop.Web.Data.Entities
 		//Numerico de 2 
 		[DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
 		public double Stock { get; set; }
+
+		public User User { get; set; }
 	}
 
 
